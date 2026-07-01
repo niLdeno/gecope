@@ -1318,6 +1318,13 @@
             color: var(--sop-slate-700);
         }
 
+        .fin-drilldown-thead th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: var(--sop-slate-100);
+        }
+
         .diff-pos {
             color: #c0392b;
             font-weight: 600;

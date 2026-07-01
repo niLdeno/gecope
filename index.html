@@ -971,9 +971,8 @@
                                     id="filter-contratante"></select></div>
                             <div><label class="form-label">Ano</label><select class="form-select form-select-sm"
                                     id="filter-ano"></select></div>
-                        </div>
-                        <div class="mt-2">
-                            <button class="btn btn-sm btn-grid-clear" id="btn-clear-filters">Limpar</button>
+                            <div><label class="form-label">&nbsp;</label><button class="btn btn-sm btn-grid-clear"
+                                    id="btn-clear-filters">Limpar</button></div>
                         </div>
                     </section>
 
@@ -1163,10 +1162,10 @@
                                     <i class="bi bi-file-earmark-excel"></i> Excel
                                 </button>
                             </div>
-                            <div class="table-responsive" style="max-height: 420px;">
+                            <div class="table-responsive" style="max-height: 420px; overflow-y: auto;">
                                 <table class="table table-hover table-striped align-middle mb-0"
                                     style="font-size: 0.82rem;">
-                                    <thead class="table-light">
+                                    <thead class="table-light fin-drilldown-thead">
                                         <tr id="fin-drilldown-head">
                                             <th data-key="processo" style="cursor:pointer;">Processo</th>
                                             <th data-key="status" style="cursor:pointer;">Status</th>

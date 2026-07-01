@@ -639,12 +639,21 @@
     function renderPorFiscalFinanceiro(rows) {
         const grupos = groupSumPair(rows, d => d.fiscal || "Não informado", d => d.repercFiscal, d => d.repercGecope);
         grupos.sort((a, b) => (Math.abs(b.v1) + Math.abs(b.v2)) - (Math.abs(a.v1) + Math.abs(a.v2)));
-        const top = grupos.slice(0, 15).reverse();
+        const top = grupos.slice(0, 40).reverse();
         const data = [
             { y: top.map(g => g.key), x: top.map(g => g.v1), name: "Fiscalização", type: "bar", orientation: "h", marker: { color: "#008F3D" } },
             { y: top.map(g => g.key), x: top.map(g => g.v2), name: "GECOPE", type: "bar", orientation: "h", marker: { color: "#018ABD" } }
         ];
-        const layout = { margin: { l: 140, r: 20, t: 10, b: 40 }, barmode: "group", xaxis: { title: "Repercussão", tickprefix: "R$ " }, legend: { orientation: "h", y: -0.15 }, height: Math.max(300, 34 * top.length + 80) };
+        const layout = {
+            margin: { l: 170, r: 30, t: 10, b: 40 },
+            barmode: "group",
+            bargap: 0.25,
+            bargroupgap: 0.15,
+            xaxis: { title: "Repercussão", tickprefix: "R$ " },
+            yaxis: { automargin: true, tickfont: { size: 12 } },
+            legend: { orientation: "h", y: -0.08 },
+            height: Math.max(420, 42 * top.length + 100)
+        };
         if (window.Plotly) Plotly.react(document.getElementById("chart-fin-fiscal"), top.length ? data : [], layout, { displayModeBar: false, responsive: true });
     }
 
